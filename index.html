@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#EEF4FF">
+<title>מה היית עושה? · המשחק למורים חדשים · תיכון רמת הארז</title>
+<meta name="description" content="18 שאלות מהשטח, 4 דמויות שמדברות, וכל תשובה מגיעה עם הסעיף מהחוברת למורים חדשים.">
+<meta property="og:title" content="מה היית עושה? · המשחק למורים חדשים">
+<meta property="og:url" content="https://new-teachers-game.sites.tab.bot/">
+<meta property="og:image" content="https://new-teachers-game.sites.tab.bot/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="מה היית עושה? · המשחק למורים חדשים">
+<meta name="twitter:description" content="18 שאלות מהשטח, 4 דמויות שמדברות, וכל תשובה עם הסעיף מהחוברת 🎯">
+<meta name="twitter:image" content="https://new-teachers-game.sites.tab.bot/img/og.png">
+<meta property="og:description" content="18 שאלות מהשטח, 4 דמויות שמדברות, וכל תשובה עם הסעיף מהחוברת 🎯">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8E%AF%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/rubik-he.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Rubik';font-style:normal;font-weight:300 900;font-display:swap;src:url(fonts/rubik-he.woff2) format('woff2');unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:300 900;font-display:swap;src:url(fonts/rubik-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122}
+:root{--bg:#EEF4FF;--card:#fff;--ink:#1E2A44;--muted:#6B7590;--line:#DCE4F5;
+--coral:#FF6B5A;--teal:#12A594;--sun:#FFC845;--plum:#6C5CE7;--sky:#3B8BEA;--ok:#22B573;--bad:#E5484D;
+--dafna:#6C5CE7;--yoav:#12A594;--liat:#FF6B5A;--tom:#FFB02E;
+--f:"Rubik",system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);direction:rtl;-webkit-font-smoothing:antialiased;overscroll-behavior:none;
+background-image:radial-gradient(circle at 12% 6%,#DCEBFF 0,transparent 40%),radial-gradient(circle at 92% 94%,#FFE6E1 0,transparent 42%)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.app{max-width:480px;margin:0 auto;min-height:100%;min-height:100svh;padding:max(10px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom));display:flex;flex-direction:column;position:relative}
+.screen{flex:1;display:none;flex-direction:column;gap:14px}
+.screen.on{display:flex;animation:in .4s ease both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:40px;margin-bottom:6px}
+.prog{display:none;align-items:center;gap:10px;flex:1}
+.bar{flex:1;height:10px;background:#fff;border-radius:99px;overflow:hidden;box-shadow:inset 0 0 0 2px var(--line)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--sky));border-radius:99px;transition:width .4s ease}
+.cnt{font-size:13px;font-weight:700;color:var(--muted);min-width:40px;text-align:center}
+.star{font-size:14px;font-weight:800;color:var(--ink);background:#fff;border-radius:99px;padding:4px 10px;box-shadow:0 2px 0 var(--line)}
+.star.pop{animation:pop .45s ease}
+@keyframes pop{30%{transform:scale(1.25)}}
+.snd{display:flex;gap:6px}
+.ib{width:38px;height:38px;border-radius:50%;background:#fff;box-shadow:0 2px 0 var(--line);font-size:18px;display:grid;place-items:center}
+.ib.off{opacity:.45;filter:grayscale(1)}
+.ib.spd{width:auto;min-width:48px;padding:0 9px;border-radius:19px;font-size:14px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;direction:ltr}
+
+/* start */
+.start{justify-content:center;text-align:center;gap:12px}
+.emblem{display:flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:50%;align-self:center;margin:2px 0 -2px;font-size:44px;background:linear-gradient(145deg,#fff,#dfe9ff);box-shadow:0 6px 18px rgba(30,60,140,.14),inset 0 0 0 3px #fff;border:2px solid #c9d8ff}
+.booklet{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:16px;background:#fff;font-size:17px;font-weight:800;color:var(--sky);text-decoration:none;box-shadow:0 3px 0 var(--line);border:2px solid var(--sky)}
+.booklet:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+
+.kicker{display:inline-block;align-self:center;font-size:12.5px;font-weight:700;letter-spacing:.2px;color:var(--sky);background:#fff;border-radius:99px;padding:5px 12px;box-shadow:0 2px 0 var(--line)}
+h1{margin:4px 0 0;font-size:36px;line-height:1.1;font-weight:900}
+h1 span{display:block;font-size:20px;font-weight:700;color:var(--muted);margin-top:8px}
+.sub{margin:0;font-size:16.5px;line-height:1.55;color:var(--muted)}
+.lineup{width:100%;max-width:400px;height:auto;align-self:center;display:block;margin:4px 0 -4px}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:18px;background:var(--coral);color:#fff;font-size:20px;font-weight:800;box-shadow:0 5px 0 #D9503F;transition:transform .08s}
+.cta:active{transform:translateY(3px);box-shadow:0 2px 0 #D9503F}
+.ghost{width:100%;padding:13px;border-radius:16px;background:#fff;font-size:16px;font-weight:700;color:var(--ink);box-shadow:0 3px 0 var(--line)}
+.fine{font-size:13px;color:var(--muted);margin:2px 0 0}
+
+/* speaker */
+.speaker{display:flex;align-items:flex-end;gap:8px}
+.who{flex:0 0 auto;width:96px;display:flex;flex-direction:column;align-items:center}
+.av{width:96px;height:96px;border-radius:50%;background:var(--c,#ddd);overflow:hidden;position:relative;box-shadow:inset 0 -6px 0 rgba(0,0,0,.08)}
+.av img,.big img{position:absolute;left:50%;bottom:-3px;width:104%;transform:translateX(-50%);transform-origin:50% 100%;animation:breathe 4.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:translateX(-50%)}50%{transform:translateX(-50%) translateY(-1px) scaleY(1.01)}}
+.av img.mh,.av img.mo,.big img.mh,.big img.mo{opacity:0}
+.m1 img.mh,.m2 img.mo{opacity:1}
+.m1 img.mc,.m2 img.mc{opacity:0}
+.talking .av,.talking .big{box-shadow:inset 0 -6px 0 rgba(0,0,0,.08),0 0 0 4px #fff,0 0 0 7px var(--c)}
+.nm{margin-top:6px;font-size:12px;font-weight:700;text-align:center;line-height:1.2}
+.bubble{flex:1;position:relative;background:#fff;border-radius:20px;border-bottom-right-radius:6px;padding:14px 16px 12px;font-size:18px;line-height:1.5;box-shadow:0 3px 0 var(--line);min-height:70px}
+.bubble::after{content:"";position:absolute;right:-8px;bottom:0;width:18px;height:18px;background:#fff;clip-path:polygon(0 0,0 100%,100% 100%)}
+.bubble p{margin:0}
+.replay{display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-size:13px;font-weight:600;color:var(--muted);padding:3px 0}
+.doc{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--sky);background:#fff;border-radius:99px;padding:8px 13px;text-decoration:none;box-shadow:0 2px 0 var(--line);border:2px solid transparent}
+.doc:active{transform:translateY(2px);box-shadow:none}
+.qhead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.rule .doc{margin-top:10px}
+.wrow .doc{margin-top:7px;font-size:13px;padding:6px 11px}
+.chip{align-self:flex-start;font-size:13px;font-weight:700;padding:5px 11px;border-radius:99px;background:#fff;color:var(--plum);box-shadow:0 2px 0 var(--line)}
+
+/* intro */
+.intro{justify-content:center}
+.stage{display:flex;flex-direction:column;align-items:center;gap:14px}
+.big{width:min(58vw,230px);max-width:32svh;aspect-ratio:1/1;border-radius:50%;background:var(--c);position:relative;overflow:hidden;box-shadow:inset 0 -10px 0 rgba(0,0,0,.07)}
+.tag{font-weight:800;font-size:18px}
+.intro .bubble{border-radius:20px;width:100%}
+.intro .bubble::after{display:none}
+.skip{align-self:center;font-size:14px;color:var(--muted);text-decoration:underline;padding:6px}
+
+/* options */
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:2px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:right;background:#fff;border-radius:16px;padding:13px 14px;font-size:16.5px;line-height:1.35;font-weight:500;box-shadow:0 3px 0 var(--line);border:2px solid transparent;transition:transform .08s,background .2s,border-color .2s}
+.opt:active{transform:translateY(2px)}
+.opt b{flex:0 0 30px;height:30px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:14px;font-weight:800;color:var(--muted)}
+.opt.ok{border-color:var(--ok);background:#EAF9F1}.opt.ok b{background:var(--ok);color:#fff}
+.opt.bad{border-color:var(--bad);background:#FDEEEE}.opt.bad b{background:var(--bad);color:#fff}
+.opt.dim{opacity:.5}
+.locked .opt{pointer-events:none}
+
+/* sheet */
+.shade{position:fixed;inset:0;background:rgba(30,42,68,.35);opacity:0;pointer-events:none;transition:opacity .25s;z-index:5}
+.shade.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:6;transform:translateY(105%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),visibility 0s .35s}
+.sheet.on{transform:none;visibility:visible;transition-delay:0s}
+.sheet-in{max-width:480px;margin:0 auto;background:var(--bg);border-radius:24px 24px 0 0;padding:14px 16px max(18px,env(safe-area-inset-bottom));max-height:88svh;overflow:auto;box-shadow:0 -6px 30px rgba(30,42,68,.18);display:flex;flex-direction:column;gap:12px}
+.grab{width:44px;height:5px;border-radius:99px;background:var(--line);margin:0 auto}
+.verdict{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:900}
+.verdict i{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-style:normal;color:#fff;font-size:20px}
+.verdict.good i{background:var(--ok)}.verdict.no i{background:var(--bad)}
+.ra{font-size:14.5px;color:var(--muted);margin:-6px 0 0}
+.rule{background:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 3px 0 var(--line);border-right:5px solid var(--sun)}
+.rule h4{margin:0 0 6px;font-size:13px;color:var(--muted);font-weight:700}
+.rule q{display:block;quotes:none;font-size:15px;line-height:1.5;margin:0 0 6px}
+.rule q:last-of-type{margin-bottom:0}
+.ref{font-size:13.5px;font-weight:700;color:var(--plum);margin-top:8px}
+.next{display:flex;align-items:center;justify-content:center;width:100%;padding:15px;border-radius:18px;background:var(--ink);color:#fff;font-size:18px;font-weight:800;box-shadow:0 4px 0 #0E1628}
+.next:active{transform:translateY(2px)}
+
+/* end */
+.end{text-align:center;gap:12px}
+.score{font-size:64px;font-weight:900;line-height:1;color:var(--coral)}
+.score small{font-size:24px;color:var(--muted);font-weight:700}
+.end h2{margin:0;font-size:26px}
+.end .speaker{text-align:right}
+.sum{background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 3px 0 var(--line);text-align:right}
+.sum h3{margin:0 0 8px;font-size:15px}
+.sum ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.sum li{display:flex;gap:10px;font-size:14.5px;line-height:1.4}
+.sum li .e{flex:0 0 22px}
+.sum small{color:var(--muted);font-weight:600}
+.row{display:flex;gap:10px}
+.row>*{flex:1}
+
+/* guide */
+.guide{gap:10px}
+.guide h2{margin:0;font-size:24px}
+.search{width:100%;padding:13px 14px;border-radius:16px;border:2px solid var(--line);background:#fff;font:inherit;font-size:16px;color:var(--ink);outline:none}
+.search:focus{border-color:var(--sky)}
+.who-list{display:flex;flex-direction:column;gap:8px}
+.wrow{background:#fff;border-radius:14px;padding:11px 14px;box-shadow:0 2px 0 var(--line)}
+.wrow b{display:block;font-size:14.5px;margin-bottom:3px}
+.wrow span{display:block;font-size:14px;color:var(--muted);line-height:1.4}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{font-size:14px;font-weight:700;color:var(--sky);background:#fff;border-radius:99px;padding:8px 13px;text-decoration:none;box-shadow:0 2px 0 var(--line)}
+.none{color:var(--muted);font-size:14px;text-align:center;padding:8px}
+.back{align-self:flex-start;font-size:14px;font-weight:700;color:var(--muted);padding:6px 0}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:9}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="app" id="app">
+  <div class="top">
+    <div class="prog" id="prog"><div class="bar"><i id="barI"></i></div><span class="cnt" id="cnt"></span><span class="star" id="star">⭐ 0</span></div>
+    <div class="snd">
+      <button class="ib" id="musBtn" aria-label="מוזיקה">🎵</button>
+      <button class="ib spd" id="spdBtn" aria-label="מהירות דיבור">1.25×</button>
+      <button class="ib" id="sndBtn" aria-label="קול">🔊</button>
+    </div>
+  </div>
+
+  <section class="screen start on" id="sStart">
+    <div class="emblem" aria-hidden="true">🏫</div>
+    <span class="kicker">תיכון רמת הארז · החוברת למורים חדשים</span>
+    <h1>מה היית עושה?<span>המשחק של החוברת למורים חדשים</span></h1>
+    <p class="sub">מצבים אמיתיים מהשטח, ארבע דמויות שמדברות,<br>וכל תשובה מגיעה עם הסעיף מהחוברת.</p>
+    <img class="lineup" src="img/lineup.webp" alt="ארבע הדמויות: יואב, דפנה, ליאת ותום" width="1200" height="600">
+    <button class="cta" id="go">מתחילים <span>🎯</span></button>
+    <button class="ghost" id="toGuide">למי פונים? המדריך המהיר</button>
+    <p class="fine">18 שאלות · עם קול 🔊 · כ-10 דקות</p>
+  </section>
+
+  <section class="screen intro" id="sIntro">
+    <div class="stage">
+      <div class="big" id="iBig"><img class="mc" id="iImg" alt=""><img class="mh" id="iImgH" alt=""><img class="mo" id="iImgO" alt=""></div>
+      <div class="tag" id="iName"></div>
+      <div class="bubble"><p id="iText"></p><button class="replay" id="iRe">🔁 להשמיע שוב</button></div>
+    </div>
+    <button class="cta" id="iNext">המשך ←</button>
+    <button class="skip" id="iSkip">לדלג ישר לשאלות ←</button>
+  </section>
+
+  <section class="screen" id="sQ">
+    <div class="qhead"><span class="chip" id="qSec"></span></div>
+    <div class="speaker" id="qSpk">
+      <div class="who"><div class="av" id="qAv"><img class="mc" id="qImg" alt=""><img class="mh" id="qImgH" alt=""><img class="mo" id="qImgO" alt=""></div><div class="nm" id="qName"></div></div>
+      <div class="bubble"><p id="qText"></p><button class="replay" id="qRe">🔁 להשמיע שוב</button></div>
+    </div>
+    <div class="opts" id="opts"></div>
+  </section>
+
+  <section class="screen end" id="sEnd">
+    <div class="score" id="eScore"></div>
+    <h2 id="eTitle"></h2>
+    <div class="speaker" id="eSpk">
+      <div class="who"><div class="av" id="eAv"><img class="mc" id="eImg" alt=""><img class="mh" id="eImgH" alt=""><img class="mo" id="eImgO" alt=""></div><div class="nm" id="eName"></div></div>
+      <div class="bubble"><p id="eText"></p><button class="replay" id="eRe">🔁 להשמיע שוב</button></div>
+    </div>
+    <div class="sum"><h3>10 דברים שכדאי לזכור מהחוברת</h3><ul id="sumList"></ul></div>
+    <div class="row"><button class="cta" id="again">עוד סיבוב 🔁</button><button class="ghost" id="share">לשתף 📤</button></div>
+    <button class="ghost" id="toGuide2">למי פונים? המדריך המהיר</button>
+  </section>
+
+  <section class="screen guide" id="sGuide">
+    <button class="back" id="gBack">→ חזרה</button>
+    <h2>למי פונים? המדריך המהיר</h2>
+    <p class="sub" style="margin:-4px 0 2px;font-size:14.5px">בלי שמות וטלפונים: רק התפקיד שאליו פונים. חפשו מילה, למשל “מבחן” או “היעדרות”.</p>
+    <input class="search" id="gSearch" type="search" placeholder="🔍 חיפוש…" autocomplete="off">
+    <div class="who-list" id="gList"></div>
+  </section>
+</div>
+
+<div class="shade" id="shade"></div>
+<div class="sheet" id="sheet"><div class="sheet-in">
+  <div class="grab"></div>
+  <div class="verdict" id="vd"><i id="vdI"></i><span id="vdT"></span></div>
+  <p class="ra" id="rightAns"></p>
+  <div class="speaker" id="fSpk">
+    <div class="who"><div class="av" id="fAv"><img class="mc" id="fImg" alt=""><img class="mh" id="fImgH" alt=""><img class="mo" id="fImgO" alt=""></div><div class="nm" id="fName"></div></div>
+    <div class="bubble"><p id="fText"></p><button class="replay" id="fRe">🔁 להשמיע שוב</button></div>
+  </div>
+  <div class="rule"><h4>מה כתוב בחוברת</h4><div id="rQ"></div><div class="ref" id="rRef"></div></div>
+  <button class="next" id="next"></button>
+</div></div>
+
+<script>
+const D={"chars": {"dafna": {"name": "דפנה, סגנית המנהל", "short": "דפנה"}, "yoav": {"name": "יואב, מחנך ותיק", "short": "יואב"}, "liat": {"name": "ליאת, מורה חדשה", "short": "ליאת"}, "tom": {"name": "תום, תלמיד י'", "short": "תום"}}, "intro": [{"c": "dafna", "t": "שלום וברוכים הבאים לתיכון רמת הארז! אני דפנה, סגנית המנהל. לפניכם שמונה־עשרה שאלות מהשטח, כולן מתוך החוברת למורים חדשים. אתם מחליטים מה נכון."}, {"c": "yoav", "t": "אני יואב, מחנך פה כבר עשרים שנה. ראיתי כבר הכול, ואת רוב הדברים ראיתי פעמיים."}, {"c": "liat", "t": "ואני ליאת, זו השנה הראשונה שלי כאן. יש לי מיליון שאלות, אז בואו נלמד יחד."}, {"c": "tom", "t": "ואני תום, תלמיד י'. בואו נגיד שחלק מהנהלים נכתבו בגללי."}], "q": [{"sec": "ואם יש לי שאלה? למי פונים?", "ask": "liat", "q": "יום שלישי בשבוע הראשון. יש לי שאלה שנשמעת לי ממש טיפשית. למי פונים?", "opts": ["שומרים אותה לישיבת הצוות הבאה", "מחפשים בגוגל כדי לא להטריד", "למי שמרגישים איתו בנוח. אין שאלות טיפשיות, ומורים חדשים מוזמנים גם לסגנית המנהל", "רק למנהל בית הספר"], "ok": 2, "by": "dafna", "exp": "ליאת, אין שאלות טיפשיות. פונים למי שמרגישים איתו או איתה בנוח: מורה חונך, מחנכת, בעלי תפקידים, יועצת השכבה. ומורים חדשים מוזמנים תמיד לפנות אליי, סגנית המנהל, ולרכזת המערכת.", "rule": "\"קודם כל – למי שמרגישים איתו או איתה בנוח. אסור להתבייש. עדיף לשאול, גם אם השאלה יכולה להישמע לכם 'מוזרה' או 'טיפשית'.\" · \"מורה חדש? סגנית המנהל ורכזת הפדגוגית / רכזת המערכת.\"", "ref": "ואם יש לי שאלה? למי פונים?", "doc": "who"}, {"sec": "לוח שיעורים", "ask": "liat", "q": "שמונה בבוקר. אני בחדר המורים ומחכה לצלצול שיזכיר לי שהשיעור מתחיל. מתי הוא יגיע?", "opts": ["עוד רגע, הוא קצת מאחר", "אין צלצולים. אני אחראית להיכנס לשיעור עם תחילתו", "המחנכת תקרא לנו", "רק בשיעור הראשון יש צלצול"], "ok": 1, "by": "yoav", "exp": "הוא לא יגיע, ליאת. ברמת הארז אין צלצולים. בית החינוך דוגל באחריות אישית של המורים והתלמידים, אז נכנסים לשיעור עם תחילתו, בלי תזכורת.", "rule": "\"בית החינוך דוגל באחריות אישית של המורים והתלמידים. אין צלצולים, המורים צריכים להיות אחראים להיכנס לשיעור עם תחילתו.\"", "ref": "לוח שיעורים", "doc": "schedule"}, {"sec": "היעדרויות ואיחורים; מילוי מקום", "ask": "liat", "q": "התעוררתי בבוקר עם חום. היום יש לי שלושה שיעורים. מה עושים?", "opts": ["ממלאים טופס הודעה על היעדרות ומחכים לאישור", "מודיעים לתלמידים בקבוצת הכיתה שאני לא מגיעה", "שולחים הודעת ווטסאפ לרכזת המערכת", "מתקשרים למנהל בית הספר"], "ok": 2, "by": "dafna", "exp": "תקלה שיודעים עליה רק בבוקר, כמו מחלה, מדווחים מיד בווטסאפ לרכזת המערכת. הטופס מיועד להיעדרות שידועה מראש. ואת אישור המחלה מעבירים למנהלנית הראשית עד העשרים בחודש.", "rule": "\"במקרה של תקלה שיודעים עליה רק בבוקר יום העבודה – יש לשלוח הודעת ווטסאפ על ההיעדרות לרכזת המערכת.\" · \"היעדרות ידועה מראש – טופס הודעה על היעדרות.\" · \"אישורי היעדרות/מחלה יש להעביר באופן ידני למנהלנית הראשית עד 20 בכל חודש.\"", "ref": "היעדרויות ואיחורים; מילוי מקום", "doc": "absence"}, {"sec": "היעדרויות ואיחורים; מילוי מקום", "ask": "yoav", "q": "קיבלת שיעור מילוי מקום בכיתה שאת לא מכירה. התלמידים עובדים לבד בשקט. מה אסור לשכוח?", "opts": ["לשחרר אותם עשר דקות מוקדם, הם היו בסדר", "למלא נוכחות במשו\"ב, גם בסטטוס \"מילוי מקום\"", "לבקש מהמחנכת שתמלא נוכחות", "לתת להם שיעור חופשי בחצר"], "ok": 1, "by": "dafna", "exp": "גם במילוי מקום ממלאים נוכחות במשו\"ב, זה חשוב מאוד. בדרך כלל מורה ממלא מקום בכיתה שהוא מלמד בשגרה, אלא אם המורה הנעדר תיאם מראש עם מרכזת המערכת והשאיר חומר לשיעור, או שמדובר בהשגחה על מבחן.", "rule": "\"חשוב מאוד: יש למלא נוכחות במשו\"ב ולהזין נוכחות של התלמידים בכיתה (גם בסטטוס 'מילוי מקום').\"", "ref": "היעדרויות ואיחורים; מילוי מקום", "doc": "absence"}, {"sec": "מערכת ניהול תלמידים משו\"ב", "ask": "liat", "q": "סיימתי יום מטורף ולא הספקתי למלא נוכחות בשני שיעורים. אשלים הכול ביום שישי?", "opts": ["כן, פעם בשבוע זה מספיק", "לא. ממלאים במהלך השיעור, ולכל היותר בסוף היום", "רק המחנכת ממלאת נוכחות", "פעם בחודש, לפני התעודות"], "ok": 1, "by": "yoav", "exp": "ליאת, נוכחות ממלאים תוך כדי השיעור, ולכל המאוחר בסוף היום. אם אוגרים רשימות, המחנכים לא רואים את תמונת המצב האמיתית בכיתה. וזו גם חובה משפטית שלנו. טיפ: תתקיני את אפליקציית המשו\"ב בטלפון.", "rule": "\"יש להקפיד על מילוי נוכחות במערכת המשו\"ב באופן שוטף!! זוהי אחריותנו וחובתנו מבחינה משפטית.\" · \"חשוב למלא את הנתונים במהלך השיעור, או מקסימום בסוף היום. אין לאגור רשימות נוכחות.\"", "ref": "מערכת ניהול תלמידים משו\"ב + יומן גוגל", "doc": "mashov"}, {"sec": "מערכת ניהול תלמידים משו\"ב", "ask": "tom", "q": "הייתי חולה, עם אישור רופא ועם הכול, והמורה למתמטיקה סימן לי \"נעדר\". זה הוגן?", "opts": ["לא, המורה היה צריך לסמן \"נוכח\" כי זה מוצדק", "כן. המורה המקצועי מסמן נעדר, והמחנך מצדיק את ההיעדרות", "המורה היה צריך פשוט לא לסמן כלום", "המורה היה צריך לסמן \"מאחר\""], "ok": 1, "by": "yoav", "exp": "תום, המורה צדק. הרישום של המורה המקצועי מתאר מה קרה בפועל בכיתה: היית או לא היית. אם ההיעדרות מוצדקת, זה כבר עניין ביני, המחנך שלך, לבינך, ואת ההצדקה אני מזין במשו\"ב.", "rule": "\"גם תלמיד שאתם יודעים שנעדר מסיבה מוצדקת/מאושרת, אתם צריכים לסמן שהוא נעדר. בנושא היעדרויות יטפל התלמיד מול מחנכ/ת הכיתה שלו. הרישום של הנוכחות על ידי המורה המקצועי מתאר מצב פיזי בכיתה ולא האם ההיעדרות מוצדקת או לא.\"", "ref": "מערכת ניהול תלמידים משו\"ב + יומן גוגל", "doc": "mashov"}, {"sec": "תורנות מורים בהפסקות", "ask": "liat", "q": "יש לי תורנות בהפסקה גדולה ביום חמישי, ובדיוק אז יש לי תור לרופא. מה עושים?", "opts": ["מדלגים, זו רק הפסקה אחת", "מבקשים מתלמיד אחראי להשגיח במקומי", "מוצאים מורה מחליף ומודיעים לרכז הביטחון", "שולחים הודעה למזכירות ביום התורנות"], "ok": 2, "by": "dafna", "exp": "הנוכחות שלך בהפסקות היא מה שנותן לתלמידים ביטחון, אז לא מדלגים. מוצאים מורה שיחליף אותך, ומודיעים לרכז הביטחון. ואם קורה משהו חריג בזמן התורנות, מדווחים להנהלה ולמחנכים הרלוונטיים.", "rule": "\"נוכחות המורים בהפסקות במתחם בית הספר הינה חובה במהלך התורנות.\" · \"אם מורה לא יכול להגיע בזמן התורנות שנקבע לו, עליו למצוא מחליף ולהודיע לרכז הביטחון.\"", "ref": "תורנות מורים בהפסקות", "doc": "duty"}, {"sec": "ניהול כיתה", "ask": "tom", "q": "באמצע השיעור בא לי לשירותים, בפעם השלישית. ואולי אקח את הסנדוויץ' ואציץ בטלפון בדרך. מה הסיכוי?", "opts": ["אם השיעור משעמם, הכול מותר", "אפשר, בתנאי שאני חוזר תוך חמש דקות", "הטלפונים בתיקים, לא אוכלים בשיעור, ושירותים במקרים חריגים בלבד", "רק הסנדוויץ' אסור"], "ok": 2, "by": "yoav", "exp": "הסיכוי קלוש, תום. בזמן השיעור הטלפונים בתיקים, לא אוכלים, ויציאה לשירותים היא למקרים חריגים בלבד. ולמורים החדשים: אל תתחילו שיעור בכיתה לא נקייה, ואל תעזבו כיתה בלי השגחה.", "rule": "\"בזמן השיעור הטלפונים בתיקים, לא אוכלים במהלך השיעור. יציאה לשירותים – במקרים חריגים בלבד!\" · \"אין להתחיל שיעור בכיתה שאינה נקייה.\" · \"אין לעזוב כיתה ללא השגחה.\"", "ref": "ניהול כיתה", "doc": "class"}, {"sec": "ניהול כיתה", "ask": "liat", "q": "סיימתי את כל החומר ונשארו שבע דקות לסוף השיעור. הכיתה מתחננת. משחררת?", "opts": ["כן, אם הם היו בסדר", "כן, אבל רק בשיעור האחרון של היום", "לא. אין לשחרר כיתות לפני מועד סיום השיעור", "רק אם המחנכת מאשרת בווטסאפ"], "ok": 2, "by": "dafna", "exp": "לא משחררים לפני הזמן, ליאת, גם לא בשיעור האחרון. תלמידים משוחררים בחצר מופיעים בכיתות אחרות. שבע דקות הן הזדמנות נהדרת לחזרה, לשאלה פתוחה, או סתם לשיחה עם הכיתה.", "rule": "\"אין לשחרר כיתות לפני מועד סיום השיעור.\" · \"אין להשאיר תלמידים בזמן שיעור בכיתה ללא נוכחות מורה.\"", "ref": "ניהול כיתה", "doc": "class"}, {"sec": "ניהול כיתה", "ask": "tom", "q": "אמא שלי צריכה לאסוף אותי היום באחת־עשרה לרופא שיניים. מה אני אמור לעשות?", "opts": ["לבקש מהמורה בשיעור שישחרר אותי", "אמא שולחת בקשה בשחרורית במשו\"ב, ומזכירת השכבה מאשרת", "פשוט לצאת, השומר מכיר אותי", "להביא פתק בכתב יד לשומר"], "ok": 1, "by": "dafna", "exp": "שחרור באמצע היום נעשה רק דרך השחרורית באפליקציית המשו\"ב. ההורה שולח בקשה, והיא מגיעה למחנך, למנהל השכבה ולמזכירת השכבה, שמאשרת את היציאה. האישור נשלח לטלפון של התלמיד, והוא מציג אותו לשומר. אם לא התקבל אישור, פונים למזכירת השכבה.", "rule": "\"שחרור תלמידים נעשה דרך השחרורית באפליקציית המשוב בלבד. ההורה שולח בקשה שמגיעה למחנך, לרכז השכבה ולמזכירת השכבה שמאשרת את היציאה. הודעת אישור נשלחת לפלאפון של התלמיד שמציג אותה לשומר ביה״ס.\"", "ref": "ניהול כיתה", "doc": "class"}, {"sec": "אירועי הערכה", "ask": "liat", "q": "אני רוצה לקבוע בוחן לכיתה י'4 בשבוע הבא. עם מי מתאמים?", "opts": ["עם המחנכת של הכיתה", "עם רכז המקצוע בלבד, והוא מעביר לרכזת הלו\"ז", "ישירות עם רכזת הלו\"ז", "לא צריך לתאם בוחן קצר"], "ok": 1, "by": "yoav", "exp": "מבחנים ובחנים מתאמים ומאשרים רק מול רכז המקצוע, והוא מעדכן את רכזת הלו\"ז. אחרי הבוחן מחזירים לתלמידים תוך שבועיים, במקצועות ההומניים עד שלושה שבועות, ומזינים את הציון במשו\"ב סמוך ככל האפשר לבדיקה.", "rule": "\"מבחנים ובחנים יתואמו ויאושרו מול רכזי המקצוע בלבד.\" · \"יש להחזיר לתלמידים את המבחנים לא יאוחר משבועיים מיום הבחינה ובמקצועות הומניים עד 3 שבועות.\"", "ref": "אירועי הערכה", "doc": "exams"}, {"sec": "קוד לבוש תלמידים", "ask": "tom", "q": "הגעתי היום עם כפכפים, מכנסיים קרועים וחולצה עם סמל. נו, זה קיץ! איפה הבעיה?", "opts": ["אין בעיה, יש סמל על החולצה", "בקיץ מותר כפכפים", "הכפכפים והקרעים. חולצה חלקה עם סמל, מכנסיים בלי קרעים, ובלי כפכפים", "רק הקרעים אסורים"], "ok": 2, "by": "dafna", "exp": "תום, הסמל זה התחלה טובה. אבל המכנסיים צריכים להיות בלי קרעים בכלל, ואסור לנעול כפכפים, נעלי אצבע או נעלי ים. החריג היחיד: נעלי טבע נאות שמחזיקות את כף הרגל. וזה תקף גם בסיורים מחוץ לבית הספר.", "rule": "\"מכנסיים ללא קרעים כלל.\" · \"אסור לנעול כפכפים, נעלי אצבע או כל נעל ים/בריכה אחרת (החריג – נעלי טבע נאות המחזיקות היטב את כף הרגל).\" · \"ביציאות מחוץ לביה\"ס חלים כל כללי התלבושת.\"", "ref": "קוד לבוש תלמידים", "doc": "dress"}, {"sec": "כניסת אורחים לבית הספר", "ask": "yoav", "q": "הורה עומד בשער עם ארוחת צהריים שהבן שלו שכח, ומבקש ממך להעביר לו אותה. מה עושים?", "opts": ["לוקחים ומעבירים, זה רק אוכל", "אסור לצוות לקבל. התלמיד יורד לשער ומקבל בעצמו", "מכניסים את ההורה לכיתה", "מבקשים מהשומר להעביר"], "ok": 1, "by": "dafna", "exp": "חל איסור מוחלט על צוות בית הספר לקבל ציוד, מזון או שתייה מידי הורה או כל אדם אחר. התלמיד יורד לשער ומקבל אותו בעצמו. ובכלל, אורח נכנס רק אם הוזמן ותיאם מראש. מי שהזמין אותו אוסף אותו מהשער ומלווה אותו.", "rule": "\"בכל מקרה בו מבקש הורה ו/או כל אדם אחר למסור לתלמיד ציוד/מזון/שתיה, חל איסור מוחלט על צוות בית הספר לקבלם מידי אותו האדם. על התלמיד להגיע לשער בעצמו.\" · \"אין לאפשר לאורחים להסתובב חופשי בשטח בית הספר.\"", "ref": "כניסת אורחים לבית הספר", "doc": "guests"}, {"sec": "ימי הורים", "ask": "liat", "q": "אני מורה מקצועית, לא מחנכת, ויום ההורים נופל על היום החופשי שלי. אז אני חייבת להגיע?", "opts": ["לא, ימי הורים הם למחנכים", "רק אם יש לי תלמידים עם בעיות", "כן. שחרור ניתן אך ורק על ידי מנהל בית הספר", "אפשר לשלוח מכתב להורים במקום"], "ok": 2, "by": "yoav", "exp": "כן, ליאת, מגיעים גם ביום חופשי. שחרור מיום הורים נותן רק מנהל בית הספר. לפני יום ההורים מזינים במשו\"ב לפחות ציון אחד במקצוע והערות מעקב. ותנצלי את היום לשיחות עם כל התלמידים, לא רק עם אלה שיש איתם קושי.", "rule": "\"מורים מקצועיים שאינם מחנכים חייבים להגיע לימי ההורים, שחרורים אך ורק על ידי מנהל בית הספר.\" · \"יש חשיבות רבה מאוד בעדכון ציונים (לפחות ציון אחד במקצוע) לפני יום הורים, וכן הערות מעקב.\"", "ref": "ימי הורים", "doc": "parents"}, {"sec": "סיורים ופעילויות מחוץ לביה\"ס", "ask": "liat", "q": "אני רוצה להוציא את י'3 לסיור במוזיאון בשבוע הבא. שלושים ושניים תלמידים, ואני לבד. מה הבעיה?", "opts": ["אין בעיה, רק צריך אוטובוס", "מתאמים לפחות שבועיים מראש, וצריך מלווה לכל עשרים תלמידים", "מספיק אישור מהמחנכת", "רק צריך אישורי הורים בווטסאפ"], "ok": 1, "by": "dafna", "exp": "שתי בעיות, ליאת. סיור מתאמים לפחות שבועיים מראש עם רכז המקצוע, רכז הביטחון, רכז הטיולים ואחראית לוח האירועים. ולפי הנחיות משרד החינוך צריך מלווה לכל עשרים תלמידים, אז עם שלושים ושניים צריך מלווה נוסף, בתיאום עם אחראית המערכת. את אישורי ההורים שולח רכז המקצוע במערכת פגישונים, ואת תיק הטיול ממלאים עם רכז הביטחון.", "rule": "\"יש לתאם עם רכז המקצוע, רכז הביטחון, רכז הטיולים ואחראית לוח האירועים לפחות שבועיים מראש.\" · \"לכל 20 תלמידים יתלווה מלווה. מעל 20 – מלווה נוסף, בתיאום עם אחראית המערכת.\" · \"אישורי הורים יישלחו ע\"י רכז המקצוע במערכת פגישונים.\" · \"יש למלא תיק טיול בתיאום עם רכז הביטחון / רכזת הטיולים.\"", "ref": "סיורים ופעילויות מחוץ לביה\"ס", "doc": "trips"}, {"sec": "ליווי פעילות שכבתיות/בית ספריות מחוץ לכיתה", "ask": "yoav", "q": "ביקשו ממך ללוות את הכיתה להרצאה באולם. מה הדרך הנכונה?", "opts": ["שולחים את התלמידים לאולם ומצטרפים כשמתפנים", "אוספים מהכיתה, בלי אוכל ושתייה, טלפונים על שקט, ויושבים איתם", "מלווים עד הדלת וחוזרים לבדוק מיילים", "נותנים לנציג הכיתה להוביל"], "ok": 1, "by": "dafna", "exp": "אוספים את התלמידים מהכיתה, מקפידים שלא ייקחו אוכל ושתייה, והטלפונים יהיו על שקט. המורה המלווה יושב עם התלמידים, בלי מחשב ובלי נייד. ולעולם לא שולחים תלמידים לבד לפעילות.", "rule": "\"עליכם לאסוף את התלמידים מהכיתה, להקפיד שלא ייקחו אוכל ושתייה, הטלפונים הניידים יהיו על שקט.\" · \"המורה המלווה את הכיתה יישב עם התלמידים ולא יעשה שימוש במחשב או בנייד בשעת הפעילות.\" · \"אין לשלוח תלמידים לבד לפעילות.\"", "ref": "ליווי פעילות שכבתיות/בית ספריות מחוץ לכיתה", "doc": "escort"}, {"sec": "דרכי תקשורת בבית הספר", "ask": "liat", "q": "אני רוצה לעדכן הורים על ציון יפה ולהיות איתם בקשר שוטף. לפתוח קבוצת ווטסאפ להורי הכיתה?", "opts": ["כן, זה הכי נוח לכולם", "לא מומלץ. דרך המשו\"ב (עם שליחה גם למייל) או בטלפון, ומתעדים בהערות מעקב", "רק דרך המחנכת", "רק במייל הפרטי"], "ok": 1, "by": "yoav", "exp": "קבוצת ווטסאפ להורים לא מומלצת. קשר עם הורים מנהלים דרך המשו\"ב, עם סימון שליחה גם למייל, או בשיחת טלפון, ואת השיחה מתעדים בהערות מעקב. אם ממש צריך, פותחים רשימת תפוצה. ואת החיזוק הזה לתלמיד שווה לשלוח גם למחנך.", "rule": "\"קשר עם הורים: רצוי דרך המשו\"ב (וסימון שליחת הודעה גם במייל) בלבד או שיחת טלפון (אל תשכחו לתעד אותה בהערות מעקב במשו\"ב), לא מומלץ לפתוח קבוצת וואטסאפ (אם כבר – ניתן לייצר רשימת שידור להורים).\"", "ref": "דרכי תקשורת בבית הספר", "doc": "comm"}, {"sec": "תמיכה דיגיטלית", "ask": "tom", "q": "המורה החדש שלח לנו את המצגת מהג'ימייל הפרטי שלו ופתח קבוצה. זה בסדר, לא?", "opts": ["בסדר גמור, העיקר שהגיע", "בסדר, אם המצגת לא סודית", "לא. עבודה מול תלמידים רק דרך המייל הארגוני והקלאסרום", "בסדר, אם ההורים אישרו"], "ok": 2, "by": "dafna", "exp": "לא בסדר, תום, ושלא ייעלב. כל העבודה מול תלמידים נעשית רק מהמייל הארגוני, מסיבות של אבטחת מידע, וכל מורה פותח כיתת קלאסרום לכל קבוצה שהוא מלמד. ובכל שאלה דיגיטלית פונים לרכזת הפדגוגיה הדיגיטלית.", "rule": "\"עבודה מול ועם תלמידים תהיה אך ורק דרך כתובת המייל הארגוני וזאת בעיקר מסיבות אבטחת מידע.\" · \"כל מורה צריך לפתוח כיתת קלאסרום עם תלמידי הכיתה/קבוצה שלו.\"", "ref": "תמיכה דיגיטלית", "doc": "digital"}], "end": [{"min": 17, "emoji": "🏆", "title": "כאילו אתם פה כבר שנה", "t": "וואו! אתם מכירים את החוברת כמו מורים ותיקים. שתהיה שנה מצוינת!", "c": "dafna"}, {"min": 12, "emoji": "💪", "title": "מכירים את השטח", "t": "יפה מאוד! עוד הצצה קטנה בחוברת, ואתם שם.", "c": "yoav"}, {"min": 7, "emoji": "🧭", "title": "בדרך הנכונה", "t": "התחלה טובה! שווה לעבור על החוברת ולשחק עוד סיבוב.", "c": "liat"}, {"min": 0, "emoji": "📖", "title": "מתחילים מחדש", "t": "סבבה, גם אני לא ידעתי את זה. בואו עוד סיבוב, הפעם זה ילך.", "c": "tom"}], "summary": [["🔔", "אין צלצולים: נכנסים לשיעור עם תחילתו", "לוח שיעורים"], ["🤒", "חולים בבוקר? ווטסאפ לרכזת המערכת. היעדרות ידועה מראש: טופס", "היעדרויות ואיחורים"], ["✅", "נוכחות במשו\"ב תוך כדי השיעור, גם במילוי מקום", "משו\"ב"], ["📅", "השתלמות בית ספרית: כל יום שלישי, שיעורים 9–10", "השתלמויות"], ["🛡️", "תורנות: לא יכולים? מוצאים מחליף ומודיעים לרכז הביטחון", "תורנות מורים"], ["🚪", "לא משחררים לפני סוף השיעור, לא עוזבים כיתה בלי השגחה", "ניהול כיתה"], ["📝", "בוחן או מבחן: רק דרך רכז המקצוע; מחזירים תוך שבועיים", "אירועי הערכה"], ["👟", "בלי כפכפים ובלי קרעים, חולצה חלקה עם סמל", "קוד לבוש"], ["🚌", "סיור: שבועיים מראש, מלווה לכל 20 תלמידים", "סיורים ופעילויות"], ["✉️", "עם תלמידים והורים: רק מהמייל הארגוני ודרך המשו\"ב", "תקשורת"]], "who": [["מורה חדש/ה – כל שאלה", "הרכזת הפדגוגית (סגנית המנהל) · רכזת המערכת (סגנית המנהל) · בכל שאלה נוספת: סגנית המנהל", "who"], ["סטאז' – ליווי יומיומי", "המורה החונך/ת", "care"], ["שאלה על תלמיד/ה או כיתה", "המחנך/ת של הכיתה", "who"], ["נושא אישי או רגיש", "יועצת השכבה · הפסיכולוגיות", "who"], ["היעדרות ידועה מראש", "טופס הודעה על היעדרות (מרכזת המערכת)", "absence"], ["מחלה בבוקר יום העבודה", "הודעת ווטסאפ לרכזת המערכת", "absence"], ["איחור / יציאה באמצע היום", "רכזת המערכת", "absence"], ["אישורי מחלה (עד ה-20 בחודש)", "המנהלנית הראשית", "absence"], ["שכר", "המנהלנית הראשית", "care"], ["קורס מורים חדשים", "אחראי/ת קורס המורים החדשים", "care"], ["השתלמות – יום שלישי אינו יום עבודה שלי", "רכזת המערכת / מנהל בית הספר", "training"], ["עזרה עם אפליקציית המשו\"ב", "רכזת המערכת", "mashov"], ["סיסמה למשו\"ב", "מזכירות בית הספר (או הזדהות אחידה)", "mashov"], ["קישור לקבוצת ההודעות של בית הספר", "רכזת המערכת (או בקבוצת המורים החדשים)", "comm"], ["תורנות – לא יכול/ה להגיע", "מוצאים מחליף/ה ומודיעים לרכז הביטחון", "duty"], ["אירוע חריג בהפסקה", "הנהלת בית הספר והמחנכים הרלוונטיים", "duty"], ["שאלה או בעיה דיגיטלית, הדרכה אישית", "רכזת הפדגוגיה הדיגיטלית", "digital"], ["קוד כניסה לאלפון המורים", "רכזת הפדגוגיה הדיגיטלית", "comm"], ["הצטרפות לקבוצת ההודעות הדיגיטלית", "רכזת הפדגוגיה הדיגיטלית", "comm"], ["הצטרפות לקבוצת הדיונים של המורים", "רכזת המערכת", "comm"], ["שיעור קבוע בספרייה", "הספרנית + רכזת המערכת", "class"], ["שחרור תלמיד באמצע היום", "השחרורית במשו\"ב; אם אין אישור – מזכירת השכבה", "class"], ["אישור מבחן או בוחן", "רכז/ת המקצוע (שמעביר/ה לרכזת הלו\"ז)", "exams"], ["היעדרות תלמיד ממבחן – מוצדקת?", "מחנך/ת הכיתה (בהתייעצות עם המורה המקצועי)", "exams"], ["הצדקת היעדרויות של תלמידים", "המחנך/ת", "mashov"], ["חריגה בזמן החזרת מבחנים", "הנהלת בית הספר", "exams"], ["אורח לא מוזמן בשער", "רכזת המערכת / סגן המנהל / המנהל / מנהלי שכבות / מזכירות", "guests"], ["שחרור מיום הורים (מורה מקצועי)", "מנהל בית הספר בלבד", "parents"], ["סיור או פעילות מחוץ לביה\"ס – תיאום (שבועיים מראש)", "רכז המקצוע · רכז הביטחון · רכז הטיולים · אחראית לוח האירועים", "trips"], ["סיור – אישור ביטחוני, מע\"ר או מאבטח", "רכז הביטחון", "trips"], ["סיור – מעל 20 תלמידים, מלווה נוסף", "אחראית המערכת", "trips"], ["סיור – אישורי הורים", "רכז המקצוע, דרך מערכת פגישונים", "trips"], ["סיור – תקציב", "רכז המקצוע / רכז השכבה + הנהלת חשבונות", "trips"], ["סיור – תיק טיול", "רכז הביטחון / רכזת הטיולים", "trips"], ["ליווי כיתה לפעילות (הרצאה, הצגה, בי\"ס סמוך)", "אוספים מהכיתה, בלי אוכל ושתייה, טלפונים על שקט, יושבים עם התלמידים. לא שולחים תלמידים לבד", "escort"], ["יוזמה חברתית", "סגן המנהל ורכז החינוך החברתי", "init"], ["יוזמה פדגוגית", "סגנית המנהל ורכזת הפדגוגית", "init"], ["הכלה ושילוב", "רכזת ההכלה והשילוב", "roles"], ["מעבדות", "מנהלת המעבדות", "roles"], ["תקלות בבניין", "אבות הבית", "roles"], ["ביטחון", "רכז הביטחון", "roles"]], "links": []};
+const MENV={"intro0": "2233345532232342235434336776506339996969924645233110000000657729911231000021294618544222100000000141142267844365699225647858616523442821000000013659966509937344295722737486444633321000000002207735333226644884436521", "intro1": "156897520038736531000000463578731285118455748955865310000000136892441374415999500001265024969529588530013565062476565321100000000", "intro2": "039866775100588520100000444995016657888564477855651533200000000058954688754899346444010000006532999876774563231000", "intro3": "016756731686530000066871575210000014999682693343197438767556976721465928465431000", "q1": "149997543645577310000015536339995644236431000000000029835733655675355432665166555744041343010000004789919975310000", "q10": "000000000079975766200015619886367162766665400038647846259600057734935653210000000049998878999842520000000000000000000000000", "q11": "168986251365411489429925875023166559535642652026446158744410000000000556999279864320", "q12": "0262595056654665400363034015007764000151263398713778751001536731376633454210000059950002431995021000094696764310000", "q13": "029839974100186699831646696442110000037334432691476535878740000342415964566344144110000000078735317544852564000255665265321000000004436998689931", "q14": "167775100027973673028301435301000000289999277723300000000015959996563667200006920399357657634224434310000000000144541356454552374000", "q15": "00000002815999614971599256788432100000473289659993538965372587545520000000000013533985435777367861653100000046776264100000000278739887630", "q16": "0125214459866742246641000001476741494452402206995200000264542226316964735444211000000000000136997822987425432344320000000", "q17": "00000019200789865101785373669704631157997412762000000476736991171654633235100000000004610899103442861396175076656713068200", "q18": "019997766675799683352676221000014779238788176512948147563299986613520862755200000675539303651641000000002454458965567400", "q2": "12256867774611210000000456957234484755255540000389243187801730179950001597111977947633585842265200000000552999982553100000", "q3": "0560158588530674000001725970797300009861496430000000059799874036953463367348546775564310000000499992267651000000", "q4": "022169744442487565489863149765151130677347416978125351000000000003246673895363268775289932633731201000000000137874399975199412100000", "q5": "03476588851674000002559999931766730000000002699963149216887766776143156010000004444666434663643100000000154436773401676400000147478733544510", "q6": "002574452585631000002764479591099956440183100000017766689974568533465200012889889776178410000000038741786400000", "q7": "239316065556830100015412415547989598942653444200000000074926589217874100001883742989752164000000000499733432100", "q8": "0145047732765324799630015976662243223210000163299984233222000000000365598622714132584481135216114248725646154110000000", "q9": "012165787516304210039975522765320000002776324689354968360385010452273444544421000000017016069989032779954010000000006647339987020000", "e1": "25517620100000029995578697107144475111000000018557677557546631344676189364314859578421100000002879546358521000027445374243110001975835112246652001694916164523451000000001869799838644577400048437577247699647128716575310000012196764754314642000005782218573778643121100000", "e2": "14558999449831114531010000000015356935538677310365373254421000000000185532448422825973952225681144463236546669769254534410000000000025355265357684355992047334560740000000025815416521000", "e3": "3113235734433311698555642831482991353201399994355453000000146461437987428975684971553845029483768735222011000000000040297145222343408925634432466356553448553442331000000000284513668897633557520000157823868897655556571633448501000069555332247693252226620", "e4": "01467767643455521155522554551597972722944944343443200000014935448949636320000000054687311688788399977566601796563220653345554358355542453000000000377575235445546766651577200000333776627643443218481757849428410000156345359633998663443651000000000999601355626298585342733985642263210000", "e5": "03677401000000000494452790688725985019811648943568951000001458714465644446235531000000000056734785733589501000000045225425878899664775130355745542483564405514231331000000000000544993952363975415165355322100000000000393110000004411999925241427717244337961000024175303100000", "e6": "00000003997640000000002588569962783542000000000000333344963555453665410356774000015415237656860273741097461432313210000000044694176205999966512210000000159999776348815546691751000000024781288329868971000034314682553158400000283874165100000000002469763359164458973000025534442100", "e7": "14532324355432353233036311000487854873477616462784332133200000006435798786344310000002511139987485456323525275210000056923266853176512322431000000001153364256874644435566826626552543450100000056872359995644579610009966475389979927423331000", "e8": "000000000000065563299719998344200005843100000000055448674353997643354139765603023221000000389932443210000000144413427874454258762000176661159743635159858525421100000000016867769752553477520000004996361277844449985332317867874146410000000005489537644292222883000014795532531310000", "e9": "244689967744675787511676524875320146530010000001169899968658979525363100000000034441467544226556563302886300058114487914192626551010000000001565968260594110004434216547404544137531132242343861000002335246731422962000000062323978722225544020330", "e10": "244311375444441232224677532258639623999365464375991296284393592875445310000000174759845669315123444200000132341336673333324622100144443798553215851000798682249975444214540000468564679798184522344100000100453878865659624129842534430333572100017354502959199658643110000003534897522879336686410003755755664416572444223410", "e11": "26422556876355126554110000015326346997876344267630000137512699661374543123421000000001558975862117764240574555653211000000000001425398379233210000442253757164653964094232596310000000000076512997576577666510004845686975412210000000004786456787352469968433499310000235559931443999613698310016423224100000", "e12": "000000000059952000000352179787302284312565056351000000000008385651353146543354842362674135432000000084565783241032044320000026666661452366200687656756543000000001836979497527844000187689505949863952867622332855116526463642000000001496296552991118988535663676304836936865443513421000", "e13": "121555122335442225430344114956272324812845245774114589510597389945562336730000575298365696153139865542133100000000003145489269792556665741004551629965767323321000000000646224983100000666962342268524591474543587725132666645233000000005866743256541960001443927185645665553000075874374112100", "e14": "17411000000001468611000034144564159846999424122110000000002332299456764435632000026157443841366559372422511100000000000132149999569726642000017436584955446617951000251624912358762482942027973000017589697188414410000000000000000241442226732436622000013432381421298503221110000000015999447368955575536524532100", "e15": "05992744424514332112000014423201100000000002325489985311455665431211441662251464554336344100015532166353011283320000001261188474232189850000025516929047768987100016432254571249923464654320000000000239721798435874365653300000289992598832792533599365442432000000099476575999657565352000018372365628543296110000017976132142314453321201000000000016439799738456520000464464166645365231463431126364412533445630000002554028274266996100178665299634534039583232153200", "e16": "2242306997451669824678641140363100000000250114258866546955122816933953423464100000003923761079999435468974360140110000000001858779968772997743489477064651443200001155889334984100054236546464100000000011855976559748768522651644347546169812002505644420110", "e17": "013413761137825917757488752002799976622110000000000177574655656544445455763677354533359811000026543789753836939675588620000000496844436056714631000000016624233385516641875337687493287225310000000000000255659641656721000000532396654555113243000000000000039455253793938615346721000000256197643899322988874555211000", "e18": "000000004689696229844210002775300000000043142188588400027776589957255321100000000000018953736277766125453276600004541267125924833466883527327974100000076326398014114253166443000000000001423299999377100005416863113037211474333761000473379814642440000000000009669439988865788353412878511000007978972000574302975813252516944843352402633011000000", "end0": "00000000000000235998421000000004106877801455795232442845310227799777527894532213432100000000000000017690563995756578781346655301100", "end1": "013563000099984101454156521100000000000018994562362377014558741004323159585010000001154203653336421100", "end2": "027022667751000015947820000000000357739989763979853737867000000177413127410099323647410000", "end3": "024848722000000000001269999997986344033111000000000001169961385134333100000000000320687432000023533320000"};
+const VBASE={"a": "https://new-teachers-game-voice-a.sites.tab.bot/", "b": "https://new-teachers-game-voice-b.sites.tab.bot/", "c": "https://new-teachers-game-voice-c.sites.tab.bot/"};
+function aurl(k){ const h=/^(intro|q)/.test(k)?VBASE.a:(/^e\d/.test(k)&&parseInt(k.slice(1))<10)?VBASE.b:VBASE.c; return h+k+'.mp3'; }
+const $=id=>document.getElementById(id);
+const COL={dafna:'var(--dafna)',yoav:'var(--yoav)',liat:'var(--liat)',tom:'var(--tom)'};
+const PRAISE=['נכון!','בול!','מדויק!','יפה מאוד!','בדיוק ככה!','כבר כמו ותיקים!'];
+let idx=0,score=0,introI=0,soundOn=localStorage.getItem('ntg_snd')!=='0',musicOn=localStorage.getItem('ntg_mus')!=='0',prev='sStart';
+const N=D.q.length;
+
+/* ---------- screens ---------- */
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id)); $('prog').style.display=(id==='sQ'||id==='sEnd')?'flex':'none'; window.scrollTo(0,0); }
+
+/* ---------- audio ---------- */
+let ctx=null,master=null,musGain=null,musTimer=0,musStep=0;
+const voice=new Audio(); voice.preload='auto'; voice.setAttribute('playsinline','');
+const SPEEDS=[1,1.25,1.5]; let spd=parseFloat(localStorage.getItem('ntg_spd')); if(SPEEDS.indexOf(spd)<0)spd=1.25;
+function applyRate(a){ try{ a.preservesPitch=true; a.mozPreservesPitch=true; a.webkitPreservesPitch=true; a.defaultPlaybackRate=spd; a.playbackRate=spd; }catch(e){} }
+applyRate(voice); ['loadedmetadata','play','playing'].forEach(ev=>voice.addEventListener(ev,()=>{ if(voice.playbackRate!==spd)applyRate(voice); }));
+let talkEl=null,mBox=null,mKey=null,mRaf=0;
+function initAudio(){
+  if(ctx){ if(ctx.state!=='running')ctx.resume(); return; }
+  try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){}
+  const AC=window.AudioContext||window.webkitAudioContext; if(!AC)return;
+  ctx=new AC(); master=ctx.createGain(); master.gain.value=soundOn?1:0; master.connect(ctx.destination);
+  musGain=ctx.createGain(); musGain.gain.value=0; musGain.connect(master);
+  startMusic();
+}
+/* procedural background music: soft pad + gentle plucks, no file needed */
+const CH=[[261.6,329.6,392.0,493.9],[220.0,261.6,329.6,415.3],[174.6,220.0,261.6,349.2],[196.0,246.9,293.7,392.0]];
+function padNote(f,t,dur){ const o=ctx.createOscillator(),o2=ctx.createOscillator(),g=ctx.createGain(),fl=ctx.createBiquadFilter();
+  o.type='triangle';o2.type='sine';o.frequency.value=f;o2.frequency.value=f*1.005; fl.type='lowpass';fl.frequency.value=900;
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.09,t+0.6);g.gain.setValueAtTime(0.09,t+dur-0.7);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(fl);o2.connect(fl);fl.connect(g);g.connect(musGain);o.start(t);o2.start(t);o.stop(t+dur+.1);o2.stop(t+dur+.1); }
+function pluck(f,t){ const o=ctx.createOscillator(),g=ctx.createGain(); o.type='sine';o.frequency.value=f;
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.16,t+0.01);g.gain.exponentialRampToValueAtTime(0.0001,t+0.55);
+  o.connect(g);g.connect(musGain);o.start(t);o.stop(t+0.6); }
+function startMusic(){
+  if(!ctx)return; const BAR=3.2; let t=ctx.currentTime+0.1;
+  const tick=()=>{ const ch=CH[musStep%CH.length]; ch.slice(0,3).forEach(f=>padNote(f/2,t,BAR+0.3));
+    [0,1,2,3,1,2].forEach((n,i)=>pluck(ch[n]*2,t+i*(BAR/6)));
+    musStep++; t+=BAR; musTimer=setTimeout(tick,(t-ctx.currentTime-0.8)*1000); };
+  tick(); setMusicLevel();
+}
+const MUS_LVL=0.55,MUS_DUCK=0.18;
+function setMusicLevel(){ if(!musGain)return; const t=ctx.currentTime; const v=musicOn?(voice.paused?MUS_LVL:MUS_DUCK):0; musGain.gain.cancelScheduledValues(t); musGain.gain.setTargetAtTime(v,t,0.3); }
+
+function frames(box,c){ box.querySelectorAll('img').forEach(im=>{ const m=im.classList.contains('mh')?'h':im.classList.contains('mo')?'o':'c'; im.src='img/'+c+'-'+m+'.webp'; im.alt=D.chars[c].name; }); box.style.setProperty('--c',COL[c]); }
+function setChar(avEl,nameEl,c){ frames(avEl,c); nameEl.textContent=D.chars[c].name; }
+function closeMouth(){ if(mBox){mBox.classList.remove('m1','m2');} if(mRaf){cancelAnimationFrame(mRaf);mRaf=0;} }
+function mouthLoop(){ if(!mBox||voice.paused){closeMouth();return;} const env=MENV[mKey]; let lvl=0;
+  if(env){ const i=Math.floor(voice.currentTime*15); lvl=i<env.length?+env[i]:0; }
+  mBox.classList.toggle('m2',lvl>=6); mBox.classList.toggle('m1',lvl>=3&&lvl<6); mRaf=requestAnimationFrame(mouthLoop); }
+function say(key,el){
+  stopVoice(); talkEl=el||null; mBox=talkEl?talkEl.querySelector('.av,.big'):null; mKey=key;
+  voice.src=aurl(key); voice.muted=!soundOn; applyRate(voice);
+  const p=voice.play(); applyRate(voice); if(p&&p.then)p.then(()=>applyRate(voice),()=>{}); if(p&&p.catch)p.catch(()=>{ if(talkEl)talkEl.classList.remove('talking'); closeMouth(); });
+  if(talkEl)talkEl.classList.add('talking'); setMusicLevel();
+}
+function stopVoice(){ try{voice.pause()}catch(e){} closeMouth(); if(talkEl)talkEl.classList.remove('talking'); talkEl=null; mBox=null; }
+voice.addEventListener('ended',()=>{ if(talkEl)talkEl.classList.remove('talking'); closeMouth(); setMusicLevel(); });
+voice.addEventListener('pause',()=>{ closeMouth(); setMusicLevel(); });
+voice.addEventListener('playing',()=>{ setMusicLevel(); if(!mRaf)mRaf=requestAnimationFrame(mouthLoop); });
+const PRE={}; function prefetch(keys){ keys.forEach(k=>{ if(!MENV[k]||PRE[k])return; try{ const a=new Audio(); a.preload='auto'; a.src=aurl(k); a.load(); PRE[k]=a; }catch(e){} }); }
+
+/* SFX */
+function tone(f,t0,dur,type,vol,f2){ if(!ctx)return; const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type||'sine';
+  o.frequency.setValueAtTime(f,t0); if(f2)o.frequency.exponentialRampToValueAtTime(f2,t0+dur);
+  g.gain.setValueAtTime(0.0001,t0); g.gain.exponentialRampToValueAtTime(vol||0.2,t0+0.015); g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);
+  o.connect(g);g.connect(master);o.start(t0);o.stop(t0+dur+0.05); }
+const SFX={
+  tap(){ if(ctx)tone(700,ctx.currentTime,0.06,'triangle',0.1); },
+  correct(){ if(!ctx)return; const t=ctx.currentTime; tone(659,t,0.14,'triangle',0.2); tone(880,t+0.1,0.18,'triangle',0.2); tone(1319,t+0.2,0.35,'triangle',0.18); },
+  wrong(){ if(!ctx)return; const t=ctx.currentTime; tone(200,t,0.22,'sawtooth',0.06,160); tone(150,t+0.18,0.3,'sawtooth',0.06,110); },
+  cheer(){ if(!ctx)return; const t=ctx.currentTime; [523,659,784,1047,1319].forEach((f,i)=>tone(f,t+i*0.1,0.4,'triangle',0.16)); },
+  whoosh(){ if(!ctx)return; tone(300,ctx.currentTime,0.18,'sine',0.08,900); }
+};
+$('sndBtn').onclick=()=>{ soundOn=!soundOn; localStorage.setItem('ntg_snd',soundOn?'1':'0'); $('sndBtn').classList.toggle('off',!soundOn); voice.muted=!soundOn; if(master)master.gain.value=soundOn?1:0; };
+function spdLabel(){ $('spdBtn').textContent=(spd===1?'1':String(spd))+'×'; }
+spdLabel(); $('spdBtn').onclick=()=>{ spd=SPEEDS[(SPEEDS.indexOf(spd)+1)%SPEEDS.length]; localStorage.setItem('ntg_spd',String(spd)); spdLabel(); applyRate(voice); if(typeof SFX!=='undefined'&&SFX.tap)SFX.tap(); };
+$('musBtn').onclick=()=>{ musicOn=!musicOn; localStorage.setItem('ntg_mus',musicOn?'1':'0'); $('musBtn').classList.toggle('off',!musicOn); initAudio(); setMusicLevel(); };
+$('sndBtn').classList.toggle('off',!soundOn); $('musBtn').classList.toggle('off',!musicOn);
+
+/* ---------- intro ---------- */
+$('go').onclick=()=>{ initAudio(); SFX.whoosh(); show('sIntro'); introI=0; renderIntro(); prefetch(['intro1','intro2','intro3','q1','e1']); };
+function renderIntro(){
+  const it=D.intro[introI]; frames($('iBig'),it.c); $('iName').textContent=D.chars[it.c].name; $('iText').textContent=it.t;
+  $('iNext').textContent= introI<D.intro.length-1 ? 'המשך ←' : 'לשאלה הראשונה ←';
+  say('intro'+introI,$('sIntro'));
+}
+$('iRe').onclick=()=>say('intro'+introI,$('sIntro'));
+$('iNext').onclick=()=>{ SFX.tap(); if(introI<D.intro.length-1){introI++;renderIntro();} else startQuiz(); };
+$('iSkip').onclick=()=>startQuiz();
+
+/* ---------- quiz ---------- */
+function startQuiz(){ idx=0;score=0; $('prog').style.display='flex'; show('sQ'); renderQ(); }
+function updTop(){ $('barI').style.width=(idx/N*100)+'%'; $('cnt').textContent=(Math.min(idx+1,N))+'/'+N; $('star').textContent='⭐ '+score; }
+function renderQ(){
+  const q=D.q[idx]; updTop(); SFX.whoosh();
+  $('qSec').textContent=q.sec; setChar($('qAv'),$('qName'),q.ask); $('qText').textContent=q.q;
+  const box=$('opts'); box.innerHTML=''; box.classList.remove('locked');
+  const L=['א','ב','ג','ד'];
+  q.opts.forEach((t,i)=>{ const b=document.createElement('button'); b.className='opt'; b.innerHTML='<b>'+L[i]+'</b><span></span>'; b.querySelector('span').textContent=t; b.onclick=()=>answer(i,b); box.appendChild(b); });
+  $('sQ').classList.remove('on'); void $('sQ').offsetWidth; $('sQ').classList.add('on');
+  say('q'+(idx+1),$('qSpk')); prefetch(['e'+(idx+1),'q'+(idx+2),'e'+(idx+2)]);
+}
+$('qRe').onclick=()=>say('q'+(idx+1),$('qSpk'));
+function answer(i,btn){
+  const q=D.q[idx]; const box=$('opts'); if(box.classList.contains('locked'))return; box.classList.add('locked');
+  const btns=[...box.children]; const good=i===q.ok;
+  btns.forEach((b,j)=>{ if(j===q.ok)b.classList.add('ok'); else if(j===i)b.classList.add('bad'); else b.classList.add('dim'); });
+  if(good){ score++; SFX.correct(); $('star').classList.remove('pop'); void $('star').offsetWidth; $('star').classList.add('pop'); burst(btn); } else SFX.wrong();
+  $('star').textContent='⭐ '+score; stopVoice();
+  $('vd').className='verdict '+(good?'good':'no'); $('vdI').textContent=good?'✓':'✕';
+  $('vdT').textContent=good?PRAISE[Math.floor(Math.random()*PRAISE.length)]:'לא בדיוק…';
+  $('rightAns').textContent=good?'':'התשובה הנכונה: '+q.opts[q.ok];
+  setChar($('fAv'),$('fName'),q.by); $('fText').textContent=q.exp;
+  const rq=$('rQ'); rq.innerHTML=''; q.rule.split(' · ').forEach(s=>{ const e=document.createElement('q'); e.textContent=s; rq.appendChild(e); });
+  $('rRef').textContent='📍 מתוך החוברת למורים חדשים · '+q.ref;
+  $('next').textContent= idx<N-1?'לשאלה הבאה ←':'לתוצאות 🏁';
+  setTimeout(()=>{ $('shade').classList.add('on'); $('sheet').classList.add('on'); $('sheet').querySelector('.sheet-in').scrollTop=0; say('e'+(idx+1),$('fSpk')); }, good?650:900);
+}
+$('fRe').onclick=()=>say('e'+(idx+1),$('fSpk'));
+$('next').onclick=()=>{ stopVoice(); $('sheet').classList.remove('on'); $('shade').classList.remove('on'); idx++; if(idx<N){ setTimeout(renderQ,120); } else finish(); };
+
+/* ---------- end ---------- */
+let endI=0;
+function finish(){
+  $('barI').style.width='100%'; $('cnt').textContent=N+'/'+N;
+  show('sEnd'); const e=D.end.find(x=>score>=x.min); endI=D.end.indexOf(e);
+  $('eTitle').textContent=e.emoji+' '+e.title; setChar($('eAv'),$('eName'),e.c); $('eText').textContent=e.t;
+  const ul=$('sumList'); ul.innerHTML=''; D.summary.forEach(s=>{ const li=document.createElement('li'); li.innerHTML='<span class="e"></span><span><span class="t"></span> <small></small></span>';
+    li.querySelector('.e').textContent=s[0]; li.querySelector('.t').textContent=s[1]; li.querySelector('small').textContent='('+s[2]+')'; ul.appendChild(li); });
+  let n=0; const el=$('eScore'); const iv=setInterval(()=>{ el.innerHTML=n+'<small>/'+N+'</small>'; if(n>=score)clearInterval(iv); n++; },70);
+  SFX.cheer(); confetti(score>=12?170:70);
+  setTimeout(()=>say('end'+endI,$('eSpk')),700);
+}
+$('eRe').onclick=()=>say('end'+endI,$('eSpk'));
+$('again').onclick=()=>{ stopVoice(); SFX.whoosh(); startQuiz(); };
+$('share').onclick=async()=>{
+  const url=location.origin+location.pathname; const text='שיחקתי ב“מה היית עושה?” – המשחק למורים חדשים – וקיבלתי '+score+'/'+N+' 🎯 נסו גם:';
+  if(navigator.share){ try{ await navigator.share({title:document.title,text:text,url:url}); return; }catch(e){ if(e&&e.name==='AbortError')return; } }
+  location.href='https://wa.me/?text='+encodeURIComponent(text+' '+url);
+};
+
+/* ---------- guide ---------- */
+function openGuide(from){ prev=from; stopVoice(); show('sGuide'); renderGuide(''); $('gSearch').value=''; }
+$('toGuide').onclick=()=>openGuide('sStart'); $('toGuide2').onclick=()=>openGuide('sEnd');
+$('gBack').onclick=()=>{ show(prev); };
+function renderGuide(f){ const list=$('gList'); list.innerHTML=''; const q=f.trim();
+  const rows=D.who.filter(r=>!q||r[0].includes(q)||r[1].includes(q));
+  rows.forEach(r=>{ const d=document.createElement('div'); d.className='wrow'; d.innerHTML='<b></b><span></span>'; d.querySelector('b').textContent=r[0]; d.querySelector('span').textContent=r[1]; list.appendChild(d); });
+  if(!rows.length){ const d=document.createElement('div'); d.className='none'; d.textContent='לא נמצא. בכל שאלה אחרת: סגנית המנהל 🙂'; list.appendChild(d); }
+}
+$('gSearch').addEventListener('input',e=>renderGuide(e.target.value));
+
+/* ---------- confetti ---------- */
+const cv=$('fx'),cx=cv.getContext('2d'); let parts=[],raf=0;
+function sizeCv(){ const r=window.devicePixelRatio||1; cv.width=innerWidth*r; cv.height=innerHeight*r; cx.setTransform(r,0,0,r,0,0); }
+addEventListener('resize',sizeCv); sizeCv();
+const CC=['#FF6B5A','#FFC845','#12A594','#3B8BEA','#6C5CE7','#FF9EB5'];
+function confetti(n){ for(let i=0;i<n;i++)parts.push({x:innerWidth/2+(Math.random()-.5)*innerWidth*.6,y:innerHeight*.35,vx:(Math.random()-.5)*9,vy:-Math.random()*11-4,s:5+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:CC[i%CC.length],life:0}); if(!raf)loop(); }
+function burst(el){ const b=el.getBoundingClientRect(); for(let i=0;i<26;i++)parts.push({x:b.left+b.width*(.2+Math.random()*.6),y:b.top+b.height/2,vx:(Math.random()-.5)*7,vy:-Math.random()*7-2,s:4+Math.random()*4,r:0,vr:(Math.random()-.5)*.4,c:CC[i%CC.length],life:0}); if(!raf)loop(); }
+function loop(){ cx.clearRect(0,0,innerWidth,innerHeight); parts.forEach(p=>{p.vy+=.28;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.life++; cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/3,p.s,p.s*.66);cx.restore();});
+  parts=parts.filter(p=>p.y<innerHeight+30&&p.life<260); raf=parts.length?requestAnimationFrame(loop):0; if(!raf)cx.clearRect(0,0,innerWidth,innerHeight); }
+document.addEventListener('visibilitychange',()=>{ if(!ctx)return; if(document.hidden){ctx.suspend();stopVoice();} else ctx.resume(); });
+</script>
+</body>
+</html>
